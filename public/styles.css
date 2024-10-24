@@ -1,0 +1,71 @@
+/* Gaya umum untuk elemen body */
+body {
+    font-family: Arial, sans-serif; /* Mengatur font keluarga untuk teks */
+    background-color: #f0f0f0; /* Mengatur warna latar belakang halaman */
+    display: flex; /* Menggunakan Flexbox untuk tata letak */
+    justify-content: center; /* Memusatkan elemen secara horizontal */
+    align-items: center; /* Memusatkan elemen secara vertikal */
+    height: 100vh; /* Mengatur tinggi body menjadi 100% dari viewport */
+    margin: 0; /* Menghapus margin default pada body */
+}
+
+/* Gaya untuk kontainer utama */
+.container {
+    background-color: #fff; /* Mengatur warna latar belakang kontainer menjadi putih */
+    padding: 20px; /* Menambahkan padding di dalam kontainer */
+    border-radius: 10px; /* Membuat sudut kontainer membulat */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan lembut di sekitar kontainer */
+    width: 300px; /* Mengatur lebar kontainer */
+}
+
+/* Gaya untuk elemen h2 */
+h2 {
+    text-align: center; /* Memusatkan teks di dalam elemen h2 */
+}
+
+/* Gaya untuk elemen label */
+label {
+    display: block; /* Menampilkan label sebagai blok sehingga mengambil lebar penuh */
+    margin-bottom: 5px; /* Menambahkan margin di bawah label untuk pemisahan dengan input */
+}
+
+/* Gaya untuk elemen input */
+input {
+    width: 100%; /* Mengatur lebar input menjadi 100% dari kontainer */
+    padding: 8px; /* Menambahkan padding di dalam input untuk ruang */
+    margin-bottom: 15px; /* Menambahkan margin di bawah input untuk pemisahan dengan elemen berikutnya */
+    border: 1px solid #ccc; /* Mengatur border input */
+    border-radius: 5px; /* Membuat sudut input membulat */
+}
+
+/* Gaya untuk elemen button */
+button {
+    width: 100%; /* Mengatur lebar button menjadi 100% dari kontainer */
+    padding: 10px; /* Menambahkan padding di dalam button untuk ruang */
+    background-color: #5cb85c; /* Mengatur warna latar belakang button */
+    color: white; /* Mengatur warna teks button menjadi putih */
+    border: none; /* Menghapus border default pada button */
+    border-radius: 5px; /* Membuat sudut button membulat */
+    cursor: pointer; /* Mengubah kursor menjadi pointer saat hover */
+}
+
+/* Gaya untuk button saat hover */
+button:hover {
+    background-color: #4cae4c; /* Mengubah warna latar belakang saat kursor berada di atas button */
+}
+
+/* Gaya untuk elemen p */
+p {
+    text-align: center; /* Memusatkan teks dalam elemen p */
+}
+
+/* Gaya untuk elemen a (tautan) */
+a {
+    color: #5cb85c; /* Mengatur warna tautan */
+    text-decoration: none; /* Menghapus garis bawah dari tautan */
+}
+
+/* Gaya untuk tautan saat hover */
+a:hover {
+    text-decoration: underline; /* Menambahkan garis bawah saat kursor berada di atas tautan */
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="styles4.css"> <!-- Tambahkan CSS jika ada -->
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Welcome, <%= user.username %></h2>
+        <p>Email: <%= user.email %></p>
+        <a href="/auth/logout">Logout</a> | 
+        <a href="/about">Ur Diary</a> | 
+        <a href="/contact">Ur Secret</a> <!-- Tambah link ke halaman lain -->
+    </div>
+</body>
+</html>

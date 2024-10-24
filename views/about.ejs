@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dear Diary</title>
+    <link rel="stylesheet" href="styles2.css"> <!-- Tambahkan CSS jika ada -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Pusatkan semua konten di tengah */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        form {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            width: 100%;
+            max-width: 400px; /* Batas lebar maksimal */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input,
+        #about-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        #about-input:focus {
+            border-color: #007BFF; /* Warna border saat fokus */
+            outline: none; /* Menghilangkan outline default */
+        }
+
+        button {
+            background-color: #f82790;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%; /* Tombol memenuhi lebar form */
+            margin-top: 10px; /* Jarak antar tombol */
+        }
+
+        button:hover {
+            background-color: #1edd64; /* Warna saat hover */
+        }
+
+        #delete-button {
+            background-color: #dd1e8d; /* Warna merah untuk tombol delete */
+        }
+
+        #delete-button:hover {
+            background-color: #d32f2f; /* Warna saat hover pada tombol delete */
+        }
+
+        #about-info {
+            margin-top: 20px;
+            text-align: center; /* Pusatkan teks */
+        }
+
+        #about-text {
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Menata tampilan tombol "Kembali Ke Profil" dan "Selanjutnya" */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 400px; /* Batas lebar maksimal */
+            margin-top: 20px; /* Jarak atas tombol */
+        }
+
+        a {
+            text-decoration: none;
+            color: #a0c0e1;
+            transition: color 0.3s;
+            width: 100%; /* Lebar tombol sama dengan tombol lainnya */
+            display: block; /* Agar tombol berfungsi sebagai block element */
+            padding: 10px; /* Padding agar tombol lebih besar */
+            text-align: center; /* Pusatkan teks */
+            border-radius: 5px; /* Sudut membulat */
+            background-color: #f82790; /* Warna tombol sama */
+        }
+
+        a:hover {
+            color: #f0f0f0; /* Warna saat hover */
+            background-color: #1edd64; /* Warna latar belakang saat hover */
+        }
+
+        /* Tambahan gaya untuk tombol selanjutnya */
+        #next-button {
+            background-color: #f82790; /* Warna yang sama dengan tombol simpan */
+            margin-top: 10px; /* Jarak atas tombol */
+            justify-content: space-between;
+            width: 100%;
+            max-width: 400px; /* Batas lebar maksimal */
+            margin-top: 20px; /* Jarak atas tombol */
+            margin-bottom: 20px; /*mengatur jarak button selanjutnya*/
+        }
+
+        #next-button:hover {
+            background-color: #1edd64; /* Warna saat hover untuk tombol selanjutnya */
+        }
+    </style>
+</head>
+<body>
+    <h1>Dear Diary</h1>
+
+    <!-- Form Identitas Singkat -->
+    <h2>My Diary..</h2>
+    <form id="identity-form">
+        <div class="form-group">
+            <label for="name">Hari:</label>
+            <input type="text" id="name" placeholder="Hari apa sekarang?" required />
+        </div>
+        <div class="form-group">
+            <label for="position">Tanggal:</label>
+            <input type="text" id="position" placeholder="Masukkan tanggal" required />
+        </div>
+        <button type="submit">Simpan Keterangan Diary</button>
+    </form>
+
+    <div id="about-info">
+        <p id="about-text">Selanjutnya tulis catatanmu disini yaa...</p>
+    </div>
+    
+    <h2>The noted</h2>
+    <form id="about-form">
+        <textarea id="about-input" rows="4" placeholder="Tulis catatanmu disini..." required></textarea>
+        <br>
+        <button type="button" id="delete-button">Delete</button> <!-- Tombol Delete -->
+        <button type="submit">Save</button>
+    </form>
+
+    <div class="button-container">
+        <a href="/">Kembali Ke Profil</a>
+        <button id="next-button">Selanjutnya</button> <!-- Tombol Selanjutnya -->
+    </div>
+
+    <script>
+        const identityForm = document.getElementById('identity-form');
+        const aboutForm = document.getElementById('about-form');
+        const aboutText = document.getElementById('about-text');
+        const aboutInput = document.getElementById('about-input');
+        const deleteButton = document.getElementById('delete-button');
+
+        // Load existing about info and identity on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedAbout = localStorage.getItem('aboutInfo');
+            if (savedAbout) {
+                aboutText.textContent = savedAbout;
+            }
+
+            // Load saved identity if exists
+            const savedName = localStorage.getItem('userName');
+            const savedPosition = localStorage.getItem('userPosition');
+            const savedEmail = localStorage.getItem('userEmail');
+
+            if (savedName) {
+                document.getElementById('name').value = savedName;
+            }
+            if (savedPosition) {
+                document.getElementById('position').value = savedPosition;
+            }
+            if (savedEmail) {
+                document.getElementById('email').value = savedEmail;
+            }
+        });
+
+        // Handle identity form submission
+        identityForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById('name').value;
+            const position = document.getElementById('position').value;
+            const email = document.getElementById('email').value;
+
+            // Save identity to local storage
+            localStorage.setItem('userName', name);
+            localStorage.setItem('userPosition', position);
+            localStorage.setItem('userEmail', email);
+
+            // Optional: Display the identity somewhere on the page
+            alert('Identitas berhasil disimpan!');
+
+            // Clear the form inputs
+            identityForm.reset();
+        });
+
+        // Handle about form submission
+        aboutForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const newAboutInfo = aboutInput.value;
+            aboutText.textContent = newAboutInfo; // Update displayed about info
+            localStorage.setItem('aboutInfo', newAboutInfo); // Save to local storage
+            aboutInput.value = ''; // Clear the input
+        });
+
+        // Handle delete button click
+        deleteButton.addEventListener('click', () => {
+            aboutText.textContent = "Selanjutnya tulis catatanmu disini yaa..."; // Reset text
+            localStorage.removeItem('aboutInfo'); // Hapus dari local storage
+            aboutInput.value = ''; // Clear the input
+        });
+
+        // Handle next button click
+        document.getElementById('next-button').addEventListener('click', () => {
+            // Ganti URL di sini sesuai kebutuhan untuk halaman selanjutnya
+            window.location.href = '/ur-secret'; // Ganti dengan URL halaman selanjutnya
+        });
+    </script>
+</body>
+</html>

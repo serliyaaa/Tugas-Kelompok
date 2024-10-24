@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ur Secret</title>
+    <link rel="stylesheet" href="styles3.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Styling untuk header dengan background berbeda */
+        header {
+            background-color: #ff9900; /* Warna latar belakang untuk header */
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        /* Pesan Rahasia Styling */
+        #message {
+            background: linear-gradient(135deg, #f39c12, #e74c3c); /* Gradien background */
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow untuk memberi efek 3D */
+            margin: 30px auto; /* Pusatkan div dengan auto margin */
+            max-width: 600px; /* Batas lebar maksimal */
+            color: white;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            text-align: center; /* Pusatkan heading */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Efek shadow pada teks */
+        }
+
+        #about-text {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Shadow pada teks untuk lebih jelas */
+            text-align: center; /* Pusatkan isi pesan rahasia */
+        }
+
+        a {
+            text-decoration: none;
+            color: #3c444b;
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header dengan background color -->
+    <header>
+        <h1>Ur Secret</h1>
+    </header>
+
+    <div id="message">
+        <h2>Pesan Rahasia</h2>
+        <p id="about-text"></p>
+    </div>
+
+    <a href="/">Kembali Ke Profil</a>
+
+    <script>
+        // Load the secret note from local storage
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedAbout = localStorage.getItem('aboutInfo');
+            if (savedAbout) {
+                document.getElementById('about-text').textContent = savedAbout;
+            } else {
+                document.getElementById('about-text').textContent = "Tidak ada pesan rahasia yang disimpan.";
+            }
+        });
+    </script>
+</body>
+</html>
